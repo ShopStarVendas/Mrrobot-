@@ -1,0 +1,156 @@
+/* Estilos para o menu */
+nav {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo img {
+  width: 100px;
+  }
+/* rotação logo*/
+.round-image {
+  width: 100px; /* Defina o tamanho desejado */
+  height: 100px; /* Defina o tamanho desejado */
+  border-radius: 50%; /* Torna a imagem redonda */
+  transition: transform 0.5s; /* Adiciona uma transição de rotação suave */
+}
+
+.round-image:hover {
+  transform: rotate(360deg); /* Adiciona uma rotação completa (360 graus) no hover */
+}
+
+
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Estilos para o ícone do menu hamburguer */
+.hamburguer {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.line {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column; /* Alterado para mostrar o menu verticalmente */
+    background-color: #333; /* Fundo preto para o menu */
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .hamburguer {
+    display: flex;
+  }
+}
+
+/* Estilos para dispositivos móveis */
+/* Estilos para dispositivos móveis */
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+    padding: 20px;
+    border-radius: 10px; /* Adiciona bordas arredondadas ao menu */
+  }
+
+  /* Adiciona o nome @menorzinho_1996 abaixo do menu */
+  .menu:after {
+    content: "@menorzinho_1996";
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  /* Estilize os itens do menu com bordas arredondadas */
+  .menu li {
+    border: 1px solid #fff; /* Adiciona uma borda branca */
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto fosco com transparência */
+    padding: 10px; /* Espaçamento interno para destacar o conteúdo */
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    margin: 10px 0; /* Espaçamento entre itens */
+  }
+}
+
+select {
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+select:hover {
+    background: #111;
+}
+
+option {
+    background: #000;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+option:hover {
+    background: #111;
+}
+
+/* função para logo*/
+/* Estilos para o overlay */
+
+/* Adicione isso ao seu arquivo style.css */
+body.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo preto fosco com transparência */
+  overflow: hidden; /* Impede a rolagem da página */
+}
+
+
+
+/* forbion */
+/* error */
+/* 404 */
+/* nao liberado*/

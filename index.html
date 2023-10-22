@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <style>
+    /* Estilos CSS */
+    body {
+      background-image: url('foto.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden; /* Remover rolagem */
+      zoom: 1; /* Remover zoom */
+    }
+
+    .login-container {
+      background-color: rgba(0, 0, 0, 0.6); /* Quadrado preto fosco */
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 80%;
+      color: white;
+    }
+
+    .cadastro-button {
+      background-color: green;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Efeito de transição */
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* Efeito florescente brilhante */
+    }
+
+    .cadastro-button:hover {
+      background-color: limegreen; /* Efeito ao passar o mouse (florescente verde) */
+    }
+
+    input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .social-login-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .social-login-icon {
+      background-color: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .social-login-icon img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    <!-- css -->
+    /* Estilos CSS para logos redondas */
+.social-login-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.social-login-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>MR ROBOT</h1>
+    <form>
+      <input type="email" placeholder="username">
+      <br>
+      <input type="password" placeholder="Senha">
+      <br>
+      <button class="cadastro-button" id="login-button" type="submit">Login</button>
+
+<script>
+document.getElementById("login-button").addEventListener("click", function() {
+    window.location.href = "login-success.html"; // Substitua "login-success.html" pelo caminho do arquivo de destino.
+});
+</script>
+   
+    </form>
+
+    <div class="social-login-icons">
+      <a href="login-success.html">
+        <div class="social-login-icon">
+          <img src="google.jpg" alt="Login com Google">
+        </div>
+      </a>
+      <a href="login-success.html">
+        <div class="social-login-icon">
+          <img src="face.jpg" alt="Login com Facebook">
+        </div>
+      </a>
+      <a href="login-success.html">
+        <div class="social-login-icon">
+          <img src="github.jpg" alt="Login com Github">
+        </div>
+      </a>
+    </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const loginForm = document.querySelector("form");
+        const usernameInput = document.querySelector('input[type="email"]');
+        const passwordInput = document.querySelector('input[type="password"]');
+        const loginButton = document.querySelector(".cadastro-button");
+
+        loginForm.addEventListener("submit", function (event) {
+            if (!usernameInput.value || !passwordInput.value) {
+                event.preventDefault(); // Impede o envio do formulário
+            }
+        });
+
+        // Desativar o botão de login inicialmente
+        loginButton.disabled = true;
+
+        // Ativar o botão de login quando ambos os campos estiverem preenchidos
+        usernameInput.addEventListener("input", toggleLoginButton);
+        passwordInput.addEventListener("input", toggleLoginButton);
+
+        function toggleLoginButton() {
+            if (usernameInput.value && passwordInput.value) {
+                loginButton.disabled = false;
+            } else {
+                loginButton.disabled = true;
+            }
+        }
+    });
+</script>
+<!-- clouds -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const usernameInput = document.querySelector('input[type="email"]');
+        const messageElement = document.createElement('div');
+        messageElement.style.color = 'red';
+        messageElement.style.fontSize = '14px';
+
+        usernameInput.addEventListener('input', function() {
+            if (usernameInput.value.includes('@')) {
+                messageElement.textContent = 'Não use e-mail, utilize apenas o nome de usuário.';
+            } else {
+                messageElement.textContent = '';
+            }
+        });
+
+        usernameInput.insertAdjacentElement('afterend', messageElement);
+    });
+</script>
+
+</body>
+</html>

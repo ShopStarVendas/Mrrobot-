@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notícias Atuais</title>
+  <style>
+    /* Estilos CSS para a exibição das notícias */
+    .noticia {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Notícias Atuais</h1>
+  
+  <div id="noticias-container"></div>
+  
+  <script>
+    // Função para carregar as notícias
+    function carregarNoticias() {
+      // Fazer uma requisição para obter as notícias mais recentes em português (código de país "br")
+      // Utilize a chave da API fornecida
+      fetch('https://newsapi.org/v2/top-headlines?country=br&apiKey=b3c34afa068f4c1382774b1b58544d3a')
+        .then(response => response.json())
+        .then(data => exibirNoticias(data.articles))
+        .catch(error => console.error(error));
+    }
+    
+    // Função para exibir as notícias na página
+    function exibirNoticias(noticias) {
+      const noticiasContainer = document.getElementById('noticias-container');
+      
+      // Limpar o conteúdo anterior
+      noticiasContainer.innerHTML = '';
+      
+      // Iterar sobre as notícias e criar elementos HTML para cada uma
+      noticias.forEach(noticia => {
+        const noticiaElement = document.createElement('div');
+        noticiaElement.classList.add('noticia');
+        
+        const tituloElement = document.createElement('h2');
+        tituloElement.textContent = noticia.title;
+        
+        const descricaoElement = document.createElement('p');
+        descricaoElement.textContent = noticia.description;
+        
+        noticiaElement.appendChild(tituloElement);
+        noticiaElement.appendChild(descricaoElement);
+        
+        noticiasContainer.appendChild(noticiaElement);
+      });
+    }
+    
+    // Chamar a função para carregar as notícias ao carregar a página
+    carregarNoticias();
+  </script>
+</body>
+</html>

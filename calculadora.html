@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora Tecnológica</title>
+  <style>
+    /* Estilos CSS */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+    }
+
+    .calculator {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #444;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .display {
+      font-size: 24px;
+      margin-bottom: 10px;
+      background-color: #333;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .keys {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .key {
+      font-size: 20px;
+      padding: 10px;
+      border: none;
+      background-color: #222;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .key:hover {
+      background-color: #555;
+    }
+
+    .backspace {
+      font-size: 20px;
+      padding: 10px;
+      border: none;
+      background-color: #f00;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .backspace:hover {
+      background-color: #800;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input class="display" type="text" id="display" readonly>
+
+    <div class="keys">
+      <button class="key" onclick="appendToDisplay('7')">7</button>
+      <button class="key" onclick="appendToDisplay('8')">8</button>
+      <button class="key" onclick="appendToDisplay('9')">9</button>
+      <button class="key" onclick="appendToDisplay('+')">+</button>
+      <button class="key" onclick="appendToDisplay('4')">4</button>
+      <button class="key" onclick="appendToDisplay('5')">5</button>
+      <button class="key" onclick="appendToDisplay('6')">6</button>
+      <button class="key" onclick="appendToDisplay('-')">-</button>
+      <button class="key" onclick="appendToDisplay('1')">1</button>
+      <button class="key" onclick="appendToDisplay('2')">2</button>
+      <button class="key" onclick="appendToDisplay('3')">3</button>
+      <button class="key" onclick="appendToDisplay('*')">*</button>
+      <button class="key" onclick="appendToDisplay('0')">0</button>
+      <button class="backspace" onclick="backspace()">&#8592;</button>
+      <button class="key" onclick="clearDisplay()">C</button>
+      <button class="key" onclick="calculateResult()">=</button>
+      <button class="key" onclick="appendToDisplay('/')">/</button>
+    </div>
+  </div>
+
+  <script>
+    let currentDisplay = "";
+
+    function appendToDisplay(value) {
+      currentDisplay += value;
+      document.getElementById("display").value = currentDisplay;
+    }
+
+    function clearDisplay() {
+      currentDisplay = "";
+      document.getElementById("display").value = currentDisplay;
+    }
+
+    function backspace() {
+      currentDisplay = currentDisplay.slice(0, -1);
+      document.getElementById("display").value = currentDisplay;
+    }
+
+    function calculateResult() {
+      try {
+        currentDisplay = eval(currentDisplay);
+        document.getElementById("display").value = currentDisplay;
+      } catch (error) {
+        currentDisplay = "Error";
+        document.getElementById("display").value = currentDisplay;
+      }
+    }
+  </script>
+</body>
+</html>
